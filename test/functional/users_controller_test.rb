@@ -6,9 +6,15 @@ class UsersControllerTest < RedmineSudo::ControllerTest
            :projects, :projects_trackers, :enabled_modules,
            :members, :member_roles
 
-  def test_create_user_with_sudo_permission
+  def setup
+    User.current = nil
+  end
+
+  def test_create_user_with_sudo_but_without_admin_permission
+    User.find(1).update_columns(sudoer: true, admin: false)
+
     @request.session[:user_id] = 1
-    assert_difference 'User.count' do
+    assert_no_difference 'User.count' do
       post :create,
            params: { user: { firstname: 'John',
                              lastname: 'Doe',
@@ -20,20 +26,28 @@ class UsersControllerTest < RedmineSudo::ControllerTest
     end
   end
 
-  def test_edit_sudoer
-    User.find(1).update_attribute :sudoer, true
-    @request.session[:user_id] = 1
-    get :edit,
-        params: { id: 1 }
-    assert_select 'input#user_sudoer'
-    assert_select 'input#user_admin', count: 0
+  def test_edit_sudoer_without_admin
+    User.find(2).update_columns(sudoer: true)
+
+    @request.session[:user_id] = 2
+    get :edit, params: { id: 2 }
+
+    assert User.find(2).sudoer?
+    assert_response :forbidden
   end
 
-  def test_edit_non_sudoer
-    @request.session[:user_id] = 2
-    get :edit,
-        params: { id: 1 }
-    assert_select 'input#user_sudoer', count: 0
+  # only possible with api change
+  def test_edit_non_sudoer_but_admin
+    @request.session[:user_id] = 1
+
+    get :edit, params: { id: 1 }
+    assert_response :success
+    assert_select 'input#user_sudoer[disabled=disabled]'
+    assert_select 'input#user_admin', count: 0
+
+    get :edit, params: { id: 2 }
+    assert_response :success
+    assert_select 'input#user_sudoer[disabled=disabled]', count: 0
     assert_select 'input#user_admin', count: 0
   end
 end

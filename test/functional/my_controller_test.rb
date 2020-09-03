@@ -5,6 +5,10 @@ class MyControllerTest < RedmineSudo::ControllerTest
            :issues, :issue_statuses, :trackers, :enumerations, :custom_fields, :auth_sources, :queries, :enabled_modules,
            :journals
 
+  def setup
+    User.current = nil
+  end
+
   def test_index_with_sudo_link_for_sudoer
     User.find(1).update_attribute :sudoer, true
     @request.session[:user_id] = 1

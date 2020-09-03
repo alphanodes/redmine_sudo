@@ -1,4 +1,4 @@
-require_dependency 'project' # see: http://www.redmine.org/issues/11035
+require_dependency 'project' # @see https://www.redmine.org/issues/11035
 require_dependency 'principal'
 require_dependency 'user'
 
@@ -13,7 +13,7 @@ module RedmineSudo
         # for api usage
         before_save :update_sudoer
 
-        safe_attributes 'sudoer', if: ->(_user, current_user) { current_user.admin? }
+        safe_attributes 'sudoer', if: ->(user, current_user) { current_user.admin? && user != current_user }
       end
 
       module InstanceMethods

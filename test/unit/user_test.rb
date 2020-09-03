@@ -1,7 +1,7 @@
 require File.expand_path '../../test_helper', __FILE__
 
 class UserTest < RedmineSudo::TestCase
-  fixtures :users, :groups_users, :email_addresses,
+  fixtures :users, :groups_users, :email_addresses, :user_preferences,
            :members, :projects, :roles, :member_roles, :auth_sources,
            :trackers, :issue_statuses,
            :projects_trackers,
@@ -9,7 +9,7 @@ class UserTest < RedmineSudo::TestCase
            :issue_categories, :enumerations, :issues,
            :journals, :journal_details,
            :enabled_modules,
-           :tokens, :user_preferences
+           :tokens
 
   def test_should_user_gets_correct_sudoer_at_creation
     user = User.generate! admin: true
