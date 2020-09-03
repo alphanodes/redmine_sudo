@@ -35,6 +35,7 @@ jobs:
       run: |
         bundle exec rubocop -S
 
-    - name: Run Brakeman
+    - name: Run Slim-Lint
       run: |
-        bundle exec brakeman -5
+        bundle exec slim-lint app/views
+      if: always()
