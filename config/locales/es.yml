@@ -1,0 +1,4 @@
+# Spanish strings go here for Rails i18n
+es:
+  label_become_admin: "Conviértase en Administrador"
+  label_drop_admin_permission: "Dejar caer el permiso de administrador"
