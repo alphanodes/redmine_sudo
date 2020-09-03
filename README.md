@@ -1,14 +1,6 @@
 Sudo plugin for Redmine
 ==================================
 
-.. image:: https://img.shields.io/badge/rate%20at-redmine.org-blue.svg?style=flat
-   :target: https://www.redmine.org/plugins/additionals
-   :alt: Rate at redmine.org
-
-
-   [![GitHub license](https://img.shields.io/github/license/jbox-web/redmine_git_hosting.svg)](https://github.com/jbox-web/redmine_git_hosting/blob/devel/LICENSE)
-
-
 [![Rate at redmine.org](https://img.shields.io/badge/rate%20at-redmine.org-blue.svg?style=flat)](https://www.redmine.org/plugins/redmine_sudo) ![Run Linters](https://github.com/AlphaNodes/redmine_sudo/workflows/Run%20Linters/badge.svg) ![Run Linters](https://github.com/AlphaNodes/redmine_sudo/workflows/Run%20Brakeman/badge.svg) ![Run Tests](https://github.com/AlphaNodes/redmine_sudo/workflows/Test/badge.svg)
 
 Features
