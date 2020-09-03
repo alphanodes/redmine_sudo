@@ -1,0 +1,6 @@
+- if User.current.sudoer?
+  - info = toggle_link_info
+  = link_to font_awesome_icon(info[:icon], post_text: info[:title]),
+            info[:url],
+            class: 'sudo-link',
+            method: :post
