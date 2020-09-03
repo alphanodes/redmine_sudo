@@ -60,6 +60,11 @@ Uninstall ``redmine_sudo``
 
 Restart Redmine (application server)
 
+Credits
+-------
+
+* @jbbarth for the idea of this plugin, but a different workflow. You can find his version here: https://github.com/jbbarth/redmine_sudo
+
 
 Known problems
 --------------
