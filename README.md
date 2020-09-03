@@ -28,13 +28,15 @@ Redmine Requirements
 * Redmine version >= 4.1
 * Redmine Plugin: [additionals](https://github.com/alphanodes/additionals)
 * Ruby version >= 2.4.0
-* Redmine sudo_mode has to be turned on in config/configuration.yml
+* **Redmine sudo_mode has to be turned on in config/configuration.yml**
 
 
 Installation
 ------------
 
 Note: all existing admin users will be converted to sudoer (which means, they can switch to admin)
+
+Note2: Make sure you created a backup of your database before install!
 
 Install ``redmine_sudo`` plugin for `Redmine`
 
@@ -55,7 +57,7 @@ Note: all existing sudoer users will be converted to admin users.
 Uninstall ``redmine_sudo``
 
     cd $REDMINE_ROOT
-    bundle exec rake redmine:plugins:migrate NAME=redmine_sudo RAILS_ENV=production
+    bundle exec rake redmine:plugins:migrate NAME=redmine_sudo VERSION=0 RAILS_ENV=production
     rm -rf plugins/redmine_sudo
 
 Restart Redmine (application server)
