@@ -1,0 +1,4 @@
+# portugis strings go here for Rails i18n
+pt-BR:
+  label_become_admin: "Tornar-se Administrador"
+  label_drop_admin_permission: "Permissão de administrador de gota"
