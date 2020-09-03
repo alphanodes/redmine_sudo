@@ -17,7 +17,7 @@ jobs:
 
     - name: Set Gemfile
       run: |
-        echo "">> Gemfile
+        echo "source 'https://rubygems.org'" > Gemfile
         echo "group :test do">> Gemfile
         echo "  gem 'rubocop', require: false" >> Gemfile
         echo "  gem 'rubocop-performance', require: false" >> Gemfile

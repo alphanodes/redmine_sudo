@@ -1,7 +1,15 @@
 Sudo plugin for Redmine
 ==================================
 
-[![Rate at redmine.org](https://img.shields.io/badge/rate%20at-redmine.org- ![Run Linters](https://github.com/AlphaNodes/redmine_sudo/workflows/Run%20Linters/badge.svg) ![Run Linters](https://github.com/AlphaNodes/redmine_sudo/workflows/Run%20Brakeman/badge.svg) ![Run Tests](https://github.com/AlphaNodes/redmine_sudo/workflows/Test/badge.svg)
+.. image:: https://img.shields.io/badge/rate%20at-redmine.org-blue.svg?style=flat
+   :target: https://www.redmine.org/plugins/additionals
+   :alt: Rate at redmine.org
+
+
+   [![GitHub license](https://img.shields.io/github/license/jbox-web/redmine_git_hosting.svg)](https://github.com/jbox-web/redmine_git_hosting/blob/devel/LICENSE)
+
+
+[![Rate at redmine.org](https://img.shields.io/badge/rate%20at-redmine.org-blue.svg?style=flat)](https://www.redmine.org/plugins/redmine_sudo) ![Run Linters](https://github.com/AlphaNodes/redmine_sudo/workflows/Run%20Linters/badge.svg) ![Run Linters](https://github.com/AlphaNodes/redmine_sudo/workflows/Run%20Brakeman/badge.svg) ![Run Tests](https://github.com/AlphaNodes/redmine_sudo/workflows/Test/badge.svg)
 
 Features
 --------
@@ -50,7 +58,7 @@ Restart Redmine (application server) and you should see the plugin show up in th
 Uninstall
 ---------
 
-Note: all existing suoder users will be converted to admin users.
+Note: all existing sudoer users will be converted to admin users.
 
 Uninstall ``redmine_sudo``
 
@@ -64,4 +72,4 @@ Restart Redmine (application server)
 Known problems
 --------------
 
-* for api calls admin permissions are temorarily set for suoder (not to database). This can be some negative side effect for some return values
+* for api calls admin permissions are temorarily set for sudoer (not to database). This can be some negative side effect for some return values
