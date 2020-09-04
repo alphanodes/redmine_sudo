@@ -7,14 +7,23 @@ Features
 --------
 
 *   User can switch to admin permission
-*   User with admin permission can drop admin permission
+*   User with admininistrator permission can drop admin permission
+*   Multilingual
 
 PROs vs default behavior
 ------------------------
 
-*   no extra user with admin permissions is required. Common use case is, to create a user called "admin" for it and multiple other users use it.
-*   fast switch between admin permission and default user permission. You just activate it, enter your password, work as administrator.
-*   Automatically timeout of working time with admin permission (can be configured with sudo_mode_timeout). After a specific time period of doing nothing you are automatically logged out as administrator and proceed doing your work with the regular permissions.
+No extra user with admin permissions is required.
+  Common use case is, to create a user called "admin" for it and multiple other users use it.
+
+Fast switch between admin permission and default user permission.
+  You just activate it, re-enter your password (if required), work as administrator.
+
+  ![Redmine Sudo](./IMG/redmine-sudo-usage.gif)
+
+Automatically timeout of working time with admin permission
+  This can be configured with *sudo_mode_timeout*. After a specific time period of doing nothing you are automatically logged out as administrator and proceed doing your work with the regular permissions.
+
 
 Break Redmine default
 ---------------------
