@@ -13,17 +13,16 @@ Features
 PROs vs default behavior
 ------------------------
 
-No extra user with admin permissions is required.
+__No extra user with admin permissions is required.__
   Common use case is, to create a user called "admin" for it and multiple other users use it.
 
-Fast switch between admin permission and default user permission.
+__Fast switch between admin permission and default user permission.__
   You just activate it, re-enter your password (if required), work as administrator.
 
-  ![Redmine Sudo](./IMG/redmine-sudo-usage.gif)
-
-Automatically timeout of working time with admin permission
+__Automatically timeout of working time with admin permission.__ 
   This can be configured with *sudo_mode_timeout*. After a specific time period of doing nothing you are automatically logged out as administrator and proceed doing your work with the regular permissions.
 
+![Redmine Sudo](./IMG/redmine-sudo-usage.gif)
 
 Break Redmine default
 ---------------------
