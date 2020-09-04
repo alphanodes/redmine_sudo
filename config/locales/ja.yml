@@ -1,0 +1,4 @@
+# Japanese strings go here for Rails i18n
+ja:
+  label_become_admin: "管理者になる"
+  label_drop_admin_permission: "管理者権限の削除"
