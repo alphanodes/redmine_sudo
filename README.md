@@ -6,29 +6,29 @@ Sudo plugin for Redmine
 Features
 --------
 
-* User can switch to admin permission
-* User with admin permission can drop admin permission
+*   User can switch to admin permission
+*   User with admin permission can drop admin permission
 
 PROs vs default behavior
 ------------------------
 
-* no extra user with admin permissions is required. Common use case is, to create a user called "admin" for it and multible other users use it.
-* fast switch between admin permisson and default user permission
-* Automatically timeout of working time with admin permission (can be configured with sudo_mode_timeout).
+*   no extra user with admin permissions is required. Common use case is, to create a user called "admin" for it and multiple other users use it.
+*   fast switch between admin permission and default user permission. You just activate it, enter your password, work as administrator.
+*   Automatically timeout of working time with admin permission (can be configured with sudo_mode_timeout). After a specific time period of doing nothing you are automatically logged out as administrator and proceed doing your work with the regular permissions.
 
 Break Redmine default
 ---------------------
 
-If a user has the to have admin permisson, he has not this permission after login. He/she has to switch to it (with top menu toggle) to get it. Redmine sudo-mode is used for time period and requesting password to switch to admin permission.
+If a user has to have admin permisson, he has not this permission after login. He/she must switch to it (with top menu toggle) to get it. Redmine sudo-mode is used for time period and requesting password to switch to admin permission.
 
 
 Redmine Requirements
 --------------------
 
-* Redmine version >= 4.1
-* Redmine Plugin: [additionals](https://github.com/alphanodes/additionals)
-* Ruby version >= 2.4.0
-* **Redmine sudo_mode has to be turned on in config/configuration.yml**
+*   Redmine version >= 4.1
+*   Redmine Plugin: [additionals](https://github.com/alphanodes/additionals)
+*   Ruby version >= 2.4.0
+*   **Redmine sudo_mode has to be turned on in config/configuration.yml**
 
 
 Installation
@@ -71,4 +71,4 @@ Credits
 Known problems
 --------------
 
-* for api calls admin permissions are temorarily set for sudoer (not to database). This can be some negative side effect for some return values
+*   for api calls admin permissions are temorarily set for sudoer (not to database). This can be some negative side effect for some return values
