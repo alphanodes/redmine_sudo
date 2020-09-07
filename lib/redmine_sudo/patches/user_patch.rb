@@ -17,9 +17,16 @@ module RedmineSudo
       end
 
       module InstanceMethods
-        # only used for api
         def update_sudoer
-          self.sudoer = true if admin? && !sudoer? && (new_record? || admin_changed?)
+          return if sudoer?
+
+          # if suoder is disabled, admin is also disabled
+          if sudoer_changed? && !admin_changed?
+            self.admin = false
+          elsif admin? && (new_record? || admin_changed?)
+            # only used for api
+            self.sudoer = true if admin? && !sudoer? && (new_record? || admin_changed?)
+          end
         end
 
         def update_admin!(value)

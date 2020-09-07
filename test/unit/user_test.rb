@@ -62,6 +62,21 @@ class UserTest < RedmineSudo::TestCase
     assert user.sudoer?
   end
 
+  def test_disable_sudoer_should_also_disable_admin
+    user = User.generate! sudoer: true
+    assert user.sudoer?
+    assert_not user.admin?
+
+    user.update_columns admin: true
+
+    user.sudoer = false
+    user.save
+    user.reload
+
+    assert_not user.sudoer?
+    assert_not user.admin?
+  end
+
   def test_sets_a_new_updated_on_date_after_admin_changed
     user = User.generate! admin: true
     user.update_attribute :updated_on, nil
