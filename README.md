@@ -19,10 +19,10 @@ __No extra user with admin permissions is required.__
 __Fast switch between admin permission and default user permission.__
   You just activate it, re-enter your password (if required), work as administrator.
 
-__Automatically timeout of working time with admin permission.__ 
+__Automatically timeout of working time with admin permission.__
   This can be configured with *sudo_mode_timeout*. After a specific time period of doing nothing you are automatically logged out as administrator and proceed doing your work with the regular permissions.
 
-![Redmine Sudo](./IMG/redmine-sudo-usage.gif)
+![Redmine Sudo](./doc/redmine-sudo-usage.gif)
 
 Break Redmine default
 ---------------------
