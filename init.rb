@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_sudo do
   name 'Redmine sudo'
   url 'https://github.com/alphanodes/redmine_sudo'
   description 'Sudo functionality for user to get admin permission'
-  version '1.0.0'
+  version RedmineSudo::VERSION
   author 'AlphaNodes GmbH'
   author_url 'https://alphanodes.com/'
 
