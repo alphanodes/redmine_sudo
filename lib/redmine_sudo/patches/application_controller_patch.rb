@@ -11,6 +11,7 @@ module RedmineSudo
       module InstanceOverwriteMethods
         def user_setup
           super
+
           # change to admin, but do not save it (just for this request)
           User.current.admin = true if User.current.sudoer? && api_request?
         end
