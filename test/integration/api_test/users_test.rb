@@ -11,7 +11,7 @@ module ApiTest
       get '/users.xml', headers: credentials('admin')
 
       assert_response :success
-      assert_equal 'application/xml', response.content_type
+      assert_equal 'application/xml', response.media_type
       assert_select 'users' do
         assert_select 'user', User.active.count
       end
