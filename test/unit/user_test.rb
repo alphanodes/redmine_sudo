@@ -12,7 +12,8 @@ class UserTest < RedmineSudo::TestCase
            :tokens
 
   def setup
-    ActiveJob::Base.queue_adapter.immediate = true
+    ActionMailer::Base.deliveries.clear
+    User.current = nil
   end
 
   def test_should_user_gets_correct_sudoer_at_creation
