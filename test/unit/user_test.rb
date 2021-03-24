@@ -11,6 +11,10 @@ class UserTest < RedmineSudo::TestCase
            :enabled_modules, :repositories,
            :tokens
 
+  def setup
+    ActiveJob::Base.queue_adapter.immediate = true
+  end
+
   def test_should_user_gets_correct_sudoer_at_creation
     user = User.generate! admin: true
     assert user.sudoer?
