@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 raise 'Please activate sudo_mode in your configuration.yml, which is required for this plugin' unless Redmine::Configuration['sudo_mode']
 
 Redmine::Plugin.register :redmine_sudo do

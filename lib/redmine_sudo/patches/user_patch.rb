@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_dependency 'project' # @see https://www.redmine.org/issues/11035
 require_dependency 'principal'
 require_dependency 'user'

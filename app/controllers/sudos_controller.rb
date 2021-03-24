@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SudosController < ApplicationController
   before_action :require_login
   require_sudo_mode :toggle, if: !User.current.admin?

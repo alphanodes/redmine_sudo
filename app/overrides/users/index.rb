@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Deface::Override.new virtual_path: 'users/index',
                      name: 'users-list-replace-admin-header',
                      replace: 'erb[loud]:contains("sort_header_tag(\'admin\'")',

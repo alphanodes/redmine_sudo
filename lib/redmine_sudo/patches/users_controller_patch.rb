@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RedmineSudo
   module Patches
     module UsersControllerPatch

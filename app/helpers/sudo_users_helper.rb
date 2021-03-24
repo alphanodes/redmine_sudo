@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SudoUsersHelper
   def sort_update(criteria, sort_name = nil)
     return super unless controller_name == 'users' && action_name == 'index'

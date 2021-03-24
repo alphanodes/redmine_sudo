@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddSudoerToUsers < ActiveRecord::Migration[5.2]
   def up
     add_column :users, :sudoer, :boolean, default: false, null: false

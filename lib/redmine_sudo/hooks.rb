@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RedmineSudo
   class RedmineSudoHookListener < Redmine::Hook::ViewListener
     render_on :view_layouts_base_body_bottom, partial: 'sudo_body_bottom'

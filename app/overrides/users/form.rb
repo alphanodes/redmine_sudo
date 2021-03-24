@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Deface::Override.new virtual_path: 'users/_form',
                      name: 'users-replace-admin-with-sudo',
                      replace: 'erb[loud]:contains("f.check_box :admin")',

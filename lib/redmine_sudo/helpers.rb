@@ -1,8 +1,4 @@
-# This file is a part of redmine_passwords,
-# a passwords managing plugin for Redmine.
-#
-# Copyright (c) 2015-2020 AlphaNodes GmbH
-# https://alphanodes.com
+# frozen_string_literal: true
 
 module RedmineSudo
   module Helpers
