@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+raise "\n\033[31maredmine_sudo requires ruby 2.6 or newer. Please update your ruby version.\033[0m" if RUBY_VERSION < '2.6'
 raise 'Please activate sudo_mode in your configuration.yml, which is required for this plugin' unless Redmine::Configuration['sudo_mode']
 
 Redmine::Plugin.register :redmine_sudo do
