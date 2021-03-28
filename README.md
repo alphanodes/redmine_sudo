@@ -6,9 +6,9 @@ Sudo plugin for Redmine
 Features
 --------
 
-*   User can switch to admin permission
-*   User with admininistrator permission can drop admin permission
-*   Multilingual
+* User can switch to admin permission
+* User with admininistrator permission can drop admin permission
+* Multilingual
 
 PROs vs default behavior
 ------------------------
@@ -29,15 +29,13 @@ Break Redmine default
 
 If a user has to have admin permisson, he has not this permission after login. He/she must switch to it (with top menu toggle) to get it. Redmine sudo-mode is used for time period and requesting password to switch to admin permission.
 
-
 Redmine Requirements
 --------------------
 
-*   Redmine version >= 4.1
-*   Redmine Plugin: [additionals](https://github.com/alphanodes/additionals)
-*   Ruby version >= 2.4.0
-*   **Redmine sudo_mode has to be turned on in config/configuration.yml**
-
+* Redmine version >= 4.1
+* Redmine Plugin: [additionals](https://github.com/alphanodes/additionals)
+* Ruby version >= 2.6
+* **Redmine sudo_mode has to be turned on in config/configuration.yml**
 
 Installation
 ------------
@@ -55,7 +53,6 @@ Install ``redmine_sudo`` plugin for `Redmine`
     bundle exec rake redmine:plugins:migrate RAILS_ENV=production
 
 Restart Redmine (application server) and you should see the plugin show up in the Plugins page.
-
 
 Uninstall
 ---------
@@ -75,8 +72,7 @@ Credits
 
 * @jbbarth for the idea of this plugin, but a different workflow. You can find his version here: https://github.com/jbbarth/redmine_sudo
 
-
 Known problems
 --------------
 
-*   for api calls admin permissions are temorarily set for sudoer (not to database). This can be some negative side effect for some return values
+* for api calls admin permissions are temorarily set for sudoer (not to database). This can be some negative side effect for some return values
