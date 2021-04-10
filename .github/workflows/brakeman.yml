@@ -12,8 +12,7 @@ jobs:
 
     - name: Install package dependencies
       run: >
-        sudo apt-get install --yes --quiet
-        pandoc
+        sudo apt-get install --yes --quiet pandoc
 
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
