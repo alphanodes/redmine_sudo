@@ -3,7 +3,7 @@
 
   javascript:
     $(function() {
-      $('#sudo-menu').attr('href', "#{escape_javascript(info[:url])}")
+      $('#sudo-menu').attr('href', "#{escape_javascript info[:url]}")
                      .attr('title', "#{info[:title]}")
                      .html("#{escape_javascript(font_awesome_icon(info[:icon], class: info[:css]))}")
                      .tooltip();
