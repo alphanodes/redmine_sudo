@@ -43,6 +43,29 @@ Rails/SkipsModelValidations:
 Performance/ChainArrayAllocation:
   Enabled: true
 
+Style/OptionHash:
+  Enabled: true
+  SuspiciousParamNames:
+    - options
+    - api_options
+    - opts
+    - args
+    - params
+    - parameters
+    - settings
+
+Style/ReturnNil:
+  Enabled: true
+
+Style/UnlessLogicalOperators:
+  Enabled: true
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  AllowParenthesesInMultilineCall: true
+  AllowParenthesesInChaining: true
+  EnforcedStyle: omit_parentheses
+
 Style/AutoResourceCleanup:
   Enabled: true
 

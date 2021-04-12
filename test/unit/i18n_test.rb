@@ -31,6 +31,6 @@ class I18nTest < RedmineSudo::TestCase
       end
     end
 
-    set_language_if_valid('en')
+    set_language_if_valid 'en'
   end
 end

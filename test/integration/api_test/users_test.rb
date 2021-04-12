@@ -48,7 +48,7 @@ module ApiTest
       get '/users/2.json'
 
       assert_response :success
-      json = ActiveSupport::JSON.decode(response.body)
+      json = ActiveSupport::JSON.decode response.body
       assert_kind_of Hash, json
       assert_kind_of Hash, json['user']
       assert_equal 2, json['user']['id']

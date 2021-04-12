@@ -47,7 +47,7 @@ class UserTest < RedmineSudo::TestCase
     assert user.sudoer?
 
     # doesn't change #admin, so #sudoer doesn't change
-    user.update_attribute(:firstname, 'John')
+    user.update_attribute :firstname, 'John'
     user.reload
     assert_not user.admin?
     assert user.sudoer?
