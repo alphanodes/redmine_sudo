@@ -57,6 +57,9 @@ Style/OptionHash:
 Style/ReturnNil:
   Enabled: true
 
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
 Style/UnlessLogicalOperators:
   Enabled: true
 
