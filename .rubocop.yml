@@ -16,6 +16,10 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/ParameterLists:
+  Enabled: true
+  CountKeywordArgs: false
+
 Metrics/ClassLength:
   Enabled: false
 
@@ -43,6 +47,11 @@ Rails/SkipsModelValidations:
 Performance/ChainArrayAllocation:
   Enabled: true
 
+Style/ExpandPathArguments:
+  Enabled: true
+  Exclude:
+    - test/**/*
+
 Style/OptionHash:
   Enabled: true
   SuspiciousParamNames:
@@ -55,9 +64,6 @@ Style/OptionHash:
     - settings
 
 Style/ReturnNil:
-  Enabled: true
-
-Style/FrozenStringLiteralComment:
   Enabled: true
 
 Style/UnlessLogicalOperators:

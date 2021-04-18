@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path '../test_helper', __dir__
+require File.expand_path '../../test_helper', __FILE__
 
 class UserTest < RedmineSudo::TestCase
   fixtures :users, :groups_users, :email_addresses, :user_preferences,

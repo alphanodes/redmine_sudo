@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-$VERBOSE = nil
-
 if ENV['COVERAGE']
   require 'simplecov'
   require 'simplecov-rcov'
