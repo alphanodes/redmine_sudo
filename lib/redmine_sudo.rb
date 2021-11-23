@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module RedmineSudo
+  VERSION = '1.0.1'
+
   class << self
     def setup
       # Patches
@@ -8,11 +10,11 @@ module RedmineSudo
       UsersController.include RedmineSudo::Patches::UsersControllerPatch
       User.include RedmineSudo::Patches::UserPatch
 
-      # Hooks
-      require_dependency 'redmine_sudo/hooks'
-
       # Global Helpers
       ActionView::Base.include RedmineSudo::Helpers
+
+      # Hooks
+      RedmineSudo::Hooks
     end
   end
 end
