@@ -14,7 +14,7 @@ Redmine::Plugin.register :redmine_sudo do
   requires_redmine version_or_higher: '4.1'
 
   begin
-    requires_redmine_plugin :additionals, version_or_higher: '3.0.1'
+    requires_redmine_plugin :additionals, version_or_higher: '3.0.3'
   rescue Redmine::PluginNotFound
     raise 'Please install additionals plugin (https://github.com/alphanodes/additionals)'
   end
@@ -26,8 +26,6 @@ Redmine::Plugin.register :redmine_sudo do
        if: proc { User.current.sudoer? }
 end
 
-if Rails.version > '6.0'
-  ActiveSupport.on_load(:active_record) { RedmineSudo.setup }
-else
-  Rails.configuration.to_prepare { RedmineSudo.setup }
+AdditionalsLoader.to_prepare do
+  RedmineSudo.setup
 end

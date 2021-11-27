@@ -5,16 +5,21 @@ module RedmineSudo
 
   class << self
     def setup
-      # Patches
-      ApplicationController.include RedmineSudo::Patches::ApplicationControllerPatch
-      UsersController.include RedmineSudo::Patches::UsersControllerPatch
-      User.include RedmineSudo::Patches::UserPatch
+      loader = AdditionalsLoader.new plugin_id: 'redmine_sudo'
 
-      # Global Helpers
-      ActionView::Base.include RedmineSudo::Helpers
+      # Patches
+      loader.add_patch %w[ApplicationController
+                          UsersController
+                          User]
+
+      # Global helpers
+      loader.add_global_helper RedmineSudo::Helpers
+
+      # Apply patches and helper
+      loader.apply!
 
       # Hooks
-      RedmineSudo::Hooks
+      loader.load_hooks!
     end
   end
 end
