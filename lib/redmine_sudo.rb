@@ -17,9 +17,6 @@ module RedmineSudo
 
       # Apply patches and helper
       loader.apply!
-
-      # Hooks
-      loader.load_hooks!
     end
   end
 end

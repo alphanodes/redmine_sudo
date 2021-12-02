@@ -26,6 +26,5 @@ Redmine::Plugin.register :redmine_sudo do
        if: proc { User.current.sudoer? }
 end
 
-AdditionalsLoader.to_prepare do
-  RedmineSudo.setup
-end
+AdditionalsLoader.load_hooks! 'redmine_sudo'
+AdditionalsLoader.to_prepare { RedmineSudo.setup } if Rails.version < '6.0'
