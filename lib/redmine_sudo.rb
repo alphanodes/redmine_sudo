@@ -3,10 +3,12 @@
 module RedmineSudo
   VERSION = '1.0.1'
 
-  class << self
-    def setup
-      loader = AdditionalsLoader.new plugin_id: 'redmine_sudo'
+  include RedminePluginKit::PluginBase
 
+  class << self
+    private
+
+    def setup
       # Patches
       loader.add_patch %w[ApplicationController
                           UsersController
@@ -17,6 +19,9 @@ module RedmineSudo
 
       # Apply patches and helper
       loader.apply!
+
+      # Load view macros
+      loader.load_view_hooks!
     end
   end
 end

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-raise "\n\033[31maredmine_sudo requires ruby 2.6 or newer. Please update your ruby version.\033[0m" if RUBY_VERSION < '2.6'
 raise 'Please activate sudo_mode in your configuration.yml, which is required for this plugin' unless Redmine::Configuration['sudo_mode']
+
+loader = RedminePluginKit::Loader.new plugin_id: 'redmine_sudo'
 
 Redmine::Plugin.register :redmine_sudo do
   name 'Redmine sudo'
@@ -26,5 +27,5 @@ Redmine::Plugin.register :redmine_sudo do
        if: proc { User.current.sudoer? }
 end
 
-AdditionalsLoader.load_hooks! 'redmine_sudo'
-AdditionalsLoader.to_prepare { RedmineSudo.setup } if Rails.version < '6.0'
+RedminePluginKit::Loader.persisting { loader.load_model_hooks! }
+RedminePluginKit::Loader.to_prepare { RedmineSudo.setup! } if Rails.version < '6.0'
