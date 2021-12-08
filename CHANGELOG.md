@@ -1,6 +1,13 @@
 Changelog
 =========
 
+v1.0.2
+------
+
+- ruby 3 support
+- upcoming Redmine 5 support
+- use redmine_plugin_kit as loader
+
 v1.0.1
 ------
 
