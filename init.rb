@@ -12,10 +12,10 @@ Redmine::Plugin.register :redmine_sudo do
   author 'AlphaNodes GmbH'
   author_url 'https://alphanodes.com/'
 
-  requires_redmine version_or_higher: '4.1'
+  requires_redmine version_or_higher: '5.0'
 
   begin
-    requires_redmine_plugin :additionals, version_or_higher: '3.0.3'
+    requires_redmine_plugin :additionals, version_or_higher: '3.0.6'
   rescue Redmine::PluginNotFound
     raise 'Please install additionals plugin (https://github.com/alphanodes/additionals)'
   end
