@@ -28,4 +28,3 @@ Redmine::Plugin.register :redmine_sudo do
 end
 
 RedminePluginKit::Loader.persisting { loader.load_model_hooks! }
-RedminePluginKit::Loader.to_prepare { RedmineSudo.setup! } if Rails.version < '6.0'
