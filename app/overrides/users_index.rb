@@ -8,7 +8,7 @@ module UsersIndex
                        partial: 'users/sudo_list_header'
   Deface::Override.new virtual_path: 'users/index',
                        name: 'users-list-replace-admin-column',
-                       replace_contents: 'td.tick',
+                       replace_contents: 'td.tick:first-of-type',
                        original: 'edc31bce1cac515de516f73c53f92a61c942301f',
                        partial: 'users/sudo_list_column'
 end
