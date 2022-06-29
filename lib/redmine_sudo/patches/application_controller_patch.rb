@@ -25,7 +25,7 @@ module RedmineSudo
           user = User.current
           return unless user.logged? && user.admin? && user.sudoer?
 
-          user.update_columns admin: false, updated_on: Time.zone.now
+          user.update_columns admin: false, updated_on: Time.current
         end
       end
     end

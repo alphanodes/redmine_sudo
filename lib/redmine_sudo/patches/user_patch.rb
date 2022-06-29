@@ -32,7 +32,7 @@ module RedmineSudo
         end
 
         def update_admin!(value)
-          User.where(id: id).update_all admin: value, updated_on: Time.zone.now
+          User.where(id: id).update_all admin: value, updated_on: Time.current
         end
       end
     end
