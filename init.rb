@@ -15,7 +15,7 @@ Redmine::Plugin.register :redmine_sudo do
   requires_redmine version_or_higher: '5.0'
 
   begin
-    requires_redmine_plugin :additionals, version_or_higher: '3.0.6'
+    requires_redmine_plugin :additionals, version_or_higher: '3.0.7'
   rescue Redmine::PluginNotFound
     raise 'Please install additionals plugin (https://github.com/alphanodes/additionals)'
   end
