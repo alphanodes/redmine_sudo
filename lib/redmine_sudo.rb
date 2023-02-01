@@ -12,6 +12,7 @@ module RedmineSudo
       # Patches
       loader.add_patch %w[ApplicationController
                           UsersController
+                          Mailer
                           User]
 
       # Global helpers
