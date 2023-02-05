@@ -10,12 +10,44 @@ module RedmineSudo
       extend ActiveSupport::Concern
 
       included do
+        prepend InstanceOverwriteMethods
         include InstanceMethods
 
         # for api usage
         before_save :update_sudoer
 
         safe_attributes 'sudoer', if: ->(user, current_user) { current_user.admin? && user != current_user }
+      end
+
+      module InstanceOverwriteMethods
+        # NOTE: overwritten, because we cannot modify users scope
+        # TODO: this should be checked for redmine changes
+        def deliver_security_notification
+          options = {
+            field: :field_admin,
+            value: login,
+            title: :label_user_plural,
+            url: { controller: 'users', action: 'index' }
+          }
+
+          deliver = false
+          if (sudoer? && saved_change_to_id? && active?) ||     # newly created admin
+             (sudoer? && saved_change_to_sudoer? && active?) || # regular user became admin
+             (sudoer? && saved_change_to_status? && active?)    # locked admin became active again
+            deliver = true
+            options[:message] = :mail_body_security_notification_add
+          elsif (sudoer? && destroyed? && active?) ||               # active admin user was deleted
+                (!sudoer? && saved_change_to_sudoer? && active?) || # admin is no longer admin
+                (sudoer? && saved_change_to_status? && !active?)    # admin was locked
+            deliver = true
+            options[:message] = :mail_body_security_notification_remove
+          end
+
+          return unless deliver
+
+          users = User.active.where(sudoer: true).to_a
+          Mailer.deliver_security_notification users, User.current, options
+        end
       end
 
       module InstanceMethods
