@@ -10,7 +10,7 @@ module RedmineSudo
         # TODO: this should be checked for redmine changes
         def self.deliver_account_activation_request(new_user)
           # Send the email to all active administrators
-          users = User.active.where sudoer: true
+          users = User.sudoer.active
           users.each do |user|
             account_activation_request(user, new_user).deliver_later
           end
@@ -25,7 +25,7 @@ module RedmineSudo
           changes = changes.map(&:to_s)
           options[:remote_ip] ||= sender.remote_ip
 
-          users = User.active.where(sudoer: true).to_a
+          users = User.sudoer.active.to_a
           users.each do |user|
             settings_updated(user, sender, changes, options).deliver_later
           end

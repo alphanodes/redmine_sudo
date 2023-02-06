@@ -13,6 +13,8 @@ module RedmineSudo
         prepend InstanceOverwriteMethods
         include InstanceMethods
 
+        scope :sudoer, -> { where sudoer: true }
+
         # for api usage
         before_save :update_sudoer
 
@@ -45,7 +47,7 @@ module RedmineSudo
 
           return unless deliver
 
-          users = User.active.where(sudoer: true).to_a
+          users = User.sudoer.active.to_a
           Mailer.deliver_security_notification users, User.current, options
         end
       end
