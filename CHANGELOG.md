@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v1.0.3
+------
+
+- security notifications fixed
+
 v1.0.2
 ------
 
