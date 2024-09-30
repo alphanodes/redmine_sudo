@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v1.0.4
+------
+
+- add Redmine 5.1 support
+- drop ruby 2.7 support
+
 v1.0.3
 ------
 

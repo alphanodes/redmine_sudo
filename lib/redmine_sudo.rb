@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RedmineSudo
-  VERSION = '1.0.3'
+  VERSION = '1.0.4'
 
   include RedminePluginKit::PluginBase
 
@@ -14,6 +14,8 @@ module RedmineSudo
                           UsersController
                           Mailer
                           User]
+
+      loader.add_patch 'UserQuery' if Redmine::VERSION.to_s >= '5.1'
 
       # Global helpers
       loader.add_global_helper RedmineSudo::Helpers

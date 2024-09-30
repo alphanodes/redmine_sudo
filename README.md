@@ -34,7 +34,7 @@ Redmine Requirements
 
 * Redmine version >= 5.0
 * Redmine Plugin: [additionals](https://github.com/alphanodes/additionals)
-* Ruby version >= 2.7
+* Ruby version >= 3.0
 * **Redmine sudo_mode has to be turned on in config/configuration.yml**
 
 Installation

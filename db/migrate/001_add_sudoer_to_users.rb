@@ -4,7 +4,7 @@ class AddSudoerToUsers < ActiveRecord::Migration[5.2]
   def up
     add_column :users, :sudoer, :boolean, default: false, null: false
     User.where(admin: true).update_all sudoer: true
-    User.all.update_all admin: false
+    User.update_all admin: false
   end
 
   def down
