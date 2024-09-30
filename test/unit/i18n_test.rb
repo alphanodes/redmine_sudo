@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../test_helper'
+require File.expand_path '../../test_helper', __FILE__
 
 class I18nTest < RedmineSudo::TestCase
   include Redmine::I18n
@@ -19,7 +19,7 @@ class I18nTest < RedmineSudo::TestCase
   end
 
   def test_locales_validness
-    lang_files_count = Rails.root.glob('plugins/additionals/config/locales/*.yml').size
+    lang_files_count = Rails.root.glob('plugins/redmine_sudo/config/locales/*.yml').size
 
     assert_equal 9, lang_files_count
     valid_languages.each do |lang|
