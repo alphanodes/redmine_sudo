@@ -19,21 +19,10 @@ class I18nTest < RedmineSudo::TestCase
   end
 
   def test_locales_validness
-    lang_files_count = Rails.root.glob('plugins/redmine_sudo/config/locales/*.yml').size
-
-    assert_equal 9, lang_files_count
-    valid_languages.each do |lang|
-      assert set_language_if_valid(lang)
-      case lang.to_s
-      when 'en'
-
-        assert_equal 'Become Administrator', l(:label_become_admin)
-      when 'pt-BR', 'de', 'es', 'fr', 'it', 'ja', 'ru', 'zh'
-
-        assert_not l(:label_become_admin) == 'Become Administrator', lang
-      end
-    end
-
-    set_language_if_valid 'en'
+    assert_locales_validness plugin: 'redmine_sudo',
+                             file_cnt: 9,
+                             locales: %w[pt-BR de es fr it ja ru zh],
+                             control_string: :label_become_admin,
+                             control_english: 'Become Administrator'
   end
 end
