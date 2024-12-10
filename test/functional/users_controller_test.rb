@@ -3,11 +3,6 @@
 require File.expand_path '../../test_helper', __FILE__
 
 class UsersControllerTest < RedmineSudo::ControllerTest
-  fixtures :users, :email_addresses, :groups_users, :roles, :user_preferences,
-           :enumerations,
-           :projects, :projects_trackers, :enabled_modules,
-           :members, :member_roles
-
   def setup
     User.current = nil
   end

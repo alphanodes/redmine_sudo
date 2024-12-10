@@ -22,9 +22,11 @@ module RedmineSudo
 
   class ControllerTest < Redmine::ControllerTest
     include RedmineSudo::TestHelper
+    fixtures :all
   end
 
   class TestCase < ActiveSupport::TestCase
     include RedmineSudo::TestHelper
+    fixtures :all
   end
 end

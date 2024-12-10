@@ -3,14 +3,6 @@
 require File.expand_path '../../test_helper', __FILE__
 
 class UserTest < RedmineSudo::TestCase
-  fixtures :users, :groups_users, :email_addresses, :user_preferences,
-           :members, :projects, :roles, :member_roles, :auth_sources,
-           :trackers, :issue_statuses, :projects_trackers,
-           :issue_categories, :enumerations, :issues, :watchers,
-           :journals, :journal_details,
-           :enabled_modules, :repositories,
-           :tokens
-
   def setup
     ActionMailer::Base.deliveries.clear
     User.current = nil
