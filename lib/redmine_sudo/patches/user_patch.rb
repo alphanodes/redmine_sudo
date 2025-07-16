@@ -53,11 +53,10 @@ module RedmineSudo
 
         # admin? has been replaced with sudoer?
         def must_activate_twofa?
-          return false if twofa_active?
+          rc = super
+          return rc if rc
 
-          return true if Setting.twofa_required?
-          return true if Setting.twofa_required_for_administrators? && sudoer?
-          return true if Setting.twofa_optional? && groups.any?(&:twofa_required?)
+          !twofa_active? && Setting.twofa_required_for_administrators? && sudoer?
         end
       end
 
