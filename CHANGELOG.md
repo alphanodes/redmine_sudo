@@ -1,6 +1,13 @@
 Changelog
 =========
 
+v1.0.5
+------
+
+- add Redmine 6 support
+- add ruby 3.4 support
+- drop ruby 3.0 support
+
 v1.0.4
 ------
 
