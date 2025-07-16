@@ -50,6 +50,15 @@ module RedmineSudo
           users = User.sudoer.active.to_a
           Mailer.deliver_security_notification users, User.current, options
         end
+
+        # admin? has been replaced with sudoer?
+        def must_activate_twofa?
+          return false if twofa_active?
+
+          return true if Setting.twofa_required?
+          return true if Setting.twofa_required_for_administrators? && sudoer?
+          return true if Setting.twofa_optional? && groups.any?(&:twofa_required?)
+        end
       end
 
       module InstanceMethods
