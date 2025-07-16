@@ -14,9 +14,12 @@ if ENV['COVERAGE']
 end
 
 require File.expand_path "#{File.dirname __FILE__}/../../../test/test_helper"
+require File.expand_path "#{File.dirname __FILE__}/../../additionals/test/global_test_helper"
 
 module RedmineSudo
   module TestHelper
+    include Additionals::GlobalTestHelper
+
     def prepare_tests; end
   end
 
