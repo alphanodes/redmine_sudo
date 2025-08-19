@@ -7,6 +7,7 @@ module RedmineSudo
 
       included do
         prepend InstanceOverwriteMethods
+
         before_action :disable_admin
       end
 
