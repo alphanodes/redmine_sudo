@@ -65,9 +65,9 @@ module RedmineSudo
           return if sudoer? || !admin?
 
           # if suoder is disabled, admin is also disabled
-          if sudoer_changed? && !admin_changed?
+          if will_save_change_to_sudoer? && !will_save_change_to_admin?
             self.admin = false
-          elsif new_record? || admin_changed?
+          elsif new_record? || will_save_change_to_admin?
             # only used for api
             self.sudoer = true
           end
