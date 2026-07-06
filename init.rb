@@ -12,7 +12,7 @@ Redmine::Plugin.register :redmine_sudo do
   author 'AlphaNodes GmbH'
   author_url 'https://alphanodes.com/'
 
-  requires_redmine version_or_higher: '6.1'
+  requires_redmine version_or_higher: '7.0'
 
   begin
     requires_redmine_plugin :additionals, version_or_higher: '4.2.0'
@@ -20,10 +20,12 @@ Redmine::Plugin.register :redmine_sudo do
     raise 'Please install additionals plugin (https://github.com/alphanodes/additionals)'
   end
 
-  menu :account_menu, :sudo, '#',
+  menu :account_menu, :sudo,
+       { controller: 'sudos', action: 'toggle' },
        first: true,
-       caption: '',
-       html: { id: 'sudo-menu', method: :post },
+       caption: proc { User.current.admin? ? I18n.t(:label_drop_admin_permission) : I18n.t(:label_become_admin) },
+       icon: 'shield-check',
+       html: { method: :post, class: 'sudo-toggle icon' },
        if: proc { User.current.sudoer? }
 end
 

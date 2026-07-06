@@ -1,10 +1,13 @@
+/ The account area is a Redmine 7 flyout dropdown, so the sudo toggle itself
+/ lives inside it as a proper menu item (see account_menu in init.rb).
 - if User.current.sudoer?
-  - info = toggle_link_info
-
+  / Append the current page as back_url so escalating to admin returns here.
   javascript:
-    $(function() {
-      $('#sudo-menu').attr('href', "#{escape_javascript info[:url]}")
-                     .attr('title', "#{info[:title]}")
-                     .html("#{escape_javascript(font_awesome_icon(info[:icon], class: info[:css]))}")
-                     .tooltip();
-    });
+    (function() {
+      var link = document.querySelector('a.sudo-toggle');
+      if (link) link.href = link.href.split('?')[0] + '?back_url=' + encodeURIComponent(location.pathname + location.search);
+    })();
+  / Flag the account avatar with a warning ring while admin permission is active.
+  - if User.current.admin?
+    javascript:
+      document.getElementById('account')?.classList.add('sudo-active');

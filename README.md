@@ -27,7 +27,7 @@ If a user has to have admin permisson, he has not this permission after login. H
 
 ## Redmine Requirements
 
-* Redmine version >= 6.1
+* Redmine version >= 7.0
 * Redmine Plugin: [additionals](https://github.com/alphanodes/additionals)
 * Ruby version >= 3.2
 * **Redmine sudo_mode has to be turned on in config/configuration.yml**
