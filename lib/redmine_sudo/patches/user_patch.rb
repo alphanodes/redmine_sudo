@@ -25,27 +25,20 @@ module RedmineSudo
         # NOTE: overwritten, because we cannot modify users scope
         # TODO: this should be checked for redmine changes
         def deliver_security_notification
+          # Skip during the first plugin migration boot: the `sudoer` column may
+          # not exist yet while other plugins trigger a User.anonymous save on load.
+          return unless has_attribute? :sudoer
+
+          message = security_notification_message
+          return unless message
+
           options = {
             field: :field_admin,
             value: login,
             title: :label_user_plural,
-            url: { controller: 'users', action: 'index' }
+            url: { controller: 'users', action: 'index' },
+            message: message
           }
-
-          deliver = false
-          if (sudoer? && saved_change_to_id? && active?) ||     # newly created admin
-             (sudoer? && saved_change_to_sudoer? && active?) || # regular user became admin
-             (sudoer? && saved_change_to_status? && active?)    # locked admin became active again
-            deliver = true
-            options[:message] = :mail_body_security_notification_add
-          elsif (sudoer? && destroyed? && active?) ||               # active admin user was deleted
-                (!sudoer? && saved_change_to_sudoer? && active?) || # admin is no longer admin
-                (sudoer? && saved_change_to_status? && !active?)    # admin was locked
-            deliver = true
-            options[:message] = :mail_body_security_notification_remove
-          end
-
-          return unless deliver
 
           users = User.sudoer.active.to_a
           Mailer.deliver_security_notification users, User.current, options
@@ -61,7 +54,24 @@ module RedmineSudo
       end
 
       module InstanceMethods
+        # Returns the security notification message key for the current save, or nil
+        # when no notification should be delivered.
+        def security_notification_message
+          if (sudoer? && saved_change_to_id? && active?) ||     # newly created admin
+             (sudoer? && saved_change_to_sudoer? && active?) || # regular user became admin
+             (sudoer? && saved_change_to_status? && active?)    # locked admin became active again
+            :mail_body_security_notification_add
+          elsif (sudoer? && destroyed? && active?) ||               # active admin user was deleted
+                (!sudoer? && saved_change_to_sudoer? && active?) || # admin is no longer admin
+                (sudoer? && saved_change_to_status? && !active?)    # admin was locked
+            :mail_body_security_notification_remove
+          end
+        end
+
         def update_sudoer
+          # Skip during the first plugin migration boot: the `sudoer` column may
+          # not exist yet while other plugins trigger a User.anonymous save on load.
+          return unless has_attribute? :sudoer
           return if sudoer? || !admin?
 
           # if suoder is disabled, admin is also disabled
