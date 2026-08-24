@@ -18,7 +18,7 @@ module RedmineSudo
 
         # NOTE: overwritten, because we cannot modify users scope
         # TODO: this should be checked for redmine changes
-        # rubocop: disable Style/OptionHash
+        # rubocop:disable-next Style/OptionHash
         def self.deliver_settings_updated(sender, changes, options = {})
           return if changes.blank?
 
@@ -30,7 +30,6 @@ module RedmineSudo
             settings_updated(user, sender, changes, options).deliver_later
           end
         end
-        # rubocop: enable Style/OptionHash
       end
     end
   end
