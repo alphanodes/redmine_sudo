@@ -2,7 +2,7 @@
 
 module UsersForm
   Deface::Override.new virtual_path: 'users/_form',
-                       name: 'users-replace-admin-with-sudo',
+                       name: 'sudo-users-replace-admin-checkbox',
                        replace: 'erb[loud]:contains("f.check_box :admin")',
                        original: 'e60a4fa50dfadff1543026068000af0103515325',
                        partial: 'users/sudo_checkbox'
