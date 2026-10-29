@@ -1,4 +1,4 @@
 # Italian strings go here for Rails i18n
 it:
-  label_become_admin: "Diventa Amministratore"
-  label_drop_admin_permission: "Autorizzazione dell'amministratore di drop"
+  label_become_admin: "Diventa amministratore"
+  label_drop_admin_permission: "Lascia i permessi di amministratore"

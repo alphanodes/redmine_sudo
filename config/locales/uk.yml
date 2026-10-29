@@ -1,0 +1,4 @@
+# Ukrainian strings go here for Rails i18n
+uk:
+  label_become_admin: "Стати адміністратором"
+  label_drop_admin_permission: "Скласти права адміністратора"

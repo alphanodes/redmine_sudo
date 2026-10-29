@@ -1,4 +1,4 @@
 # Russian strings go here for Rails i18n
 ru:
-  label_become_admin: "Станьте администратором"
-  label_drop_admin_permission: "Разрешение Drop администратора"
+  label_become_admin: "Стать администратором"
+  label_drop_admin_permission: "Сложить права администратора"

@@ -1,0 +1,4 @@
+# Polish strings go here for Rails i18n
+pl:
+  label_become_admin: "Zostań administratorem"
+  label_drop_admin_permission: "Oddaj uprawnienia administratora"

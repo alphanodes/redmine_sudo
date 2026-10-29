@@ -1,0 +1,4 @@
+# Traditional Chinese strings go here for Rails i18n
+zh-TW:
+  label_become_admin: "成為管理者"
+  label_drop_admin_permission: "退出管理者身分"
